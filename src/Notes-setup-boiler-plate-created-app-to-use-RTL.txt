@@ -182,7 +182,34 @@
       everyone anyway.
 
     Step3: Scroll to Webpack Source Maps
+        - Webpack bundles all of your JavaScript source code files. That's perfect, 
+        however, it introduces one pitfall for us as developers. Once you introduce a 
+        bug and see it in your browser's developer tools, it's often difficult to track 
+        down the file where the bug happened, because everything is bundled into one 
+        JavaScript file by Webpack.
 
+        - In order to overcome this problem, there are source maps which can be introduced 
+        to give Webpack a reference to the origin source code. By using the source maps, 
+        Webpack can map all the bundled source code back to the original source. In
+        webpack.config.js add:
+            devtool: 'source-map',
+
+        - Clicking on the file gives you the actual source code and location of the 
+        bug even though all your JavaScript source code got bundled by Webpack. Also note 
+        that there is a new file called dist/bundle.js.map which is used to perform the
+        mapping between actual source code from src/ and the bundled JavaScript in dist/bundle.js.
+            
+
+        - In order to overcome this problem, there are source maps which can be introduced 
+        to give Webpack a reference to the origin source code. By using the source maps, 
+        Webpack can map all the bundled source code back to the original source. 
+        In your webpack.config.js file, introduce one common configuration for source maps:
+
+        By doing this clicking on the file gives the actual source code and location 
+        of the bug. Also note that there is a new file called dist/bundle.js.map which is 
+        used to perform the mapping between actual source code from src/ and the 
+        bundled JavaScript in dist/bundle.js.
+        
     Step4: Scroll to Webpack Development/Build Configuration
 
     Step5: Scroll to Webpack Merge Configuration
