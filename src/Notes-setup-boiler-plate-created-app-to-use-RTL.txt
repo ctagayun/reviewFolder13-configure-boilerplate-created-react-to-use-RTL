@@ -167,7 +167,19 @@
       with every Webpack build. In order to do so, introduce the clean-webpack-plugin plugin:
 
           npm install --save-dev clean-webpack-plugin
-          
+
+          then introduce it in your webpack.config.js file:
+              new CleanWebpackPlugin(),
+
+      - Now, every Webpack build will wipe the content of your dist/ folder before 
+      creating the new dist/index.html and dist/bundle.js files from scratch. Having it 
+      set up this way, you will never find files from older Webpack builds in your dist/folder 
+      which is perfect for just taking your entire dist/ folder to production.
+      Note: 
+         If you are using a version control system like GitHub, you can put the build 
+      folder (dist/) into your .gitignore file, because everything is auto generated for 
+      everyone anyway.
+
     Step3: Scroll to Webpack Source Maps
 
     Step4: Scroll to Webpack Development/Build Configuration
