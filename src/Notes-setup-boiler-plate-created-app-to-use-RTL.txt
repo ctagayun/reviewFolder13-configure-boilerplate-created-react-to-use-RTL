@@ -1,4 +1,5 @@
 
+
  Go to: https://www.robinwieruch.de/minimal-react-webpack-babel-setup/#hot-module-replacement-in-react
 
 
@@ -129,9 +130,9 @@
          http://192.168.1.244:8080
          http://127.0.0.1:8080
          Hit CTRL-C to stop the server
-
+         
     Step2: Scroll to How to manage your Webpack Build Folder
-      -  Every time you run npm run build, you will see Webpack creating a new 
+        -  Every time you run npm run build, you will see Webpack creating a new 
       version of your bundle JavaScript source code with a dist/bundle.js file.
       The best thing would be to start with an empty dist/ folder with every 
       Webpack build.
