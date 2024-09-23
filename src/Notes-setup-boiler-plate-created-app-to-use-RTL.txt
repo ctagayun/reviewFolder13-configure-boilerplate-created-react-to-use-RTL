@@ -162,6 +162,12 @@
 
       - run npm run build again
 
+      - Finally we have been able to create both files, dist/bundle.js and dist/index.html 
+      automatically with Webpack. This means we can delete the content of our dist/ folder 
+      with every Webpack build. In order to do so, introduce the clean-webpack-plugin plugin:
+
+          npm install --save-dev clean-webpack-plugin
+          
     Step3: Scroll to Webpack Source Maps
 
     Step4: Scroll to Webpack Development/Build Configuration
