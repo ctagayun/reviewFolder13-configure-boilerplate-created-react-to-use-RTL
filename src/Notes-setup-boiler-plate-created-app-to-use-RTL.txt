@@ -209,8 +209,39 @@
         of the bug. Also note that there is a new file called dist/bundle.js.map which is 
         used to perform the mapping between actual source code from src/ and the 
         bundled JavaScript in dist/bundle.js.
-        
+
+        To Test: sum.js 
+            - npm start 
+                 f12 --> console--> will see the following error: 
+                 Uncaught ReferenceError: c is not defined
+                     at __WEBPACK_DEFAULT_EXPORT__ (sum.js:2:16)
+                     at ./src/index.js (index.js:19:16)
+                     at __webpack_require__ (bootstrap:24:1)
+            -  click sum.js   where the error happened, you only see Webpack's bundled output.   
+               In the case of this example, it's still readable, however imagine the output for a more complex problem:
+
+            - Run npm run build and npx http-server dist to see the error in your browser again:
+                 - npm run build
+                 - npx http-server dist ( to see the error in your browser again:)
+
+                 - this time the error is hidden in you bundle.js.
+
+            - Clicking on the file (sum.js) gives you the actual source code and location of 
+                  Uncaught ReferenceError: c is not defined
+                     at __WEBPACK_DEFAULT_EXPORT__ (sum.js:2:16)
+
+                  The  click will take you to the source code where the error occured.
+                 export default function (a, b) {
+                     return a + c;  //instead of returning  a+b;
+                  };
+
+            the bug even though all your JavaScript source code got bundled by Webpack. 
+            Also note that there is a new file called dist/bundle.js.map which is used 
+            to perform the mapping between actual source code from src/ and the bundled 
+            JavaScript in dist/bundle.js.
+
     Step4: Scroll to Webpack Development/Build Configuration
+        
 
     Step5: Scroll to Webpack Merge Configuration
 

@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
-import App from './App';
-//import sum from './sum.js';
+// import App from './App';
 
-const title = 'This is src/index.js';
 
-ReactDOM.render(
-  <App title={title} />,
-  document.getElementById('app')
-);
+// const title = 'This is src/index.js';
 
-//console.log(sum(2, 5));
+// ReactDOM.render(
+//   <App title={title} />,
+//   document.getElementById('app')
+// );
 
-module.hot.accept();
+// //console.log(sum(2, 5));
+
+// module.hot.accept();
+
+import sum from './sum.js';
+console.log(sum(2, 5));
