@@ -129,8 +129,38 @@
          http://192.168.1.244:8080
          http://127.0.0.1:8080
          Hit CTRL-C to stop the server
-         
+
     Step2: Scroll to How to manage your Webpack Build Folder
+      -  Every time you run npm run build, you will see Webpack creating a new 
+      version of your bundle JavaScript source code with a dist/bundle.js file.
+      The best thing would be to start with an empty dist/ folder with every 
+      Webpack build.
+
+      - In order to auto generate the dist/index.html file as well and bundle.js, we can use 
+      a Webpack plugin. First, install the html-webpack-plugin plugin as dev dependency 
+      from your project's root directory:
+
+          npm install --save-dev html-webpack-plugin
+
+         and copy to webpack/config. 
+         const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+         plugins: [new HtmlWebpackPlugin()],
+      
+         Now, run npm run build again and see how it auto generates a new 
+         dist/index.html file
+
+         if you want to have custom content for your dist/index.html file, you can specify a 
+         template yourself. Add the code below to the plugins section of webpack.config:
+                new HtmlWebpackPlugin({
+                  title: 'Hello Webpack bundled JavaScript Project',
+                  template: path.resolve(__dirname, './src/index.html'),
+               })
+      - Then, create a new src/index.html template file in your source code folder and give it the 
+      following content:
+
+             touch index.html  (See detailed explanation written inside this file)
+
+      - run npm run build again
 
     Step3: Scroll to Webpack Source Maps
 
