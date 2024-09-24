@@ -350,6 +350,56 @@
        third parties.
 
     Step8: Webpack Addons 
+       - let's introduce addons which can be used optionally to analyze and visualize your 
+         Webpack bundle. In your package.json add:
+
+           "build:analyze": "npm run build -- --env addon=bundleanalyze",
+
+         Note how this new npm script runs another npm script but with additional 
+         configuration (here Webpack addons "addon=bundleanalyze").
+
+       -  Let's see how we can use them in our build-utils/webpack.config.js file:
+          (see notes in the file webpack.config.js)
+
+          - create /addons/webpack.bundleanalyze.js 
+
+          - Next, install the Webpack addon via npm on the command line:
+             npm install --save-dev webpack-bundle-analyzer
+
+            Here you are installing a specific webpack addon CALLED "WEBPACK-BUNDLE-ANALYZER"
+
+       - Now try the optional tool for Webpack analytics and visualization yourself. 
+         On your command line, type:
+
+              npm run build:analyze 
+
+         Afterward, check your dist/ folder for new files. You should find one which 
+         you can open the following way:
+
+           Webpack's bundleanalyze: dist/report.html open via 
+
+                npx http-server dist  
+
+           visit the URL, and append /report.html
+       
+    Exercises:
+      Exercises:
+        -  Install a library like lodash - https://github.com/lodash/lodash" 
+           to your application, import it, and use a function from it in your source code
+         
+        -  Run again npm run build:analyze and check both visualizations
+           You should see that Lodash makes up a huge part of your Webpack bundle whereas 
+           your actual source code takes up only a minimal part
+
+        - Explore more Webpack addons and introduce them to your application
+          You can also come up with more npm scripts for different Webpack addons
+
+        - Optional React: Check out the minimal React with Webpack setup - https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
+
+        -  Put it into your advanced Webpack application
+           Confirm your final result with the official advanced React with Webpack setup
+           - https://github.com/rwieruch/advanced-react-webpack-babel-setup
+
 
 ================================================
 4. SETUP REACT TESTING LIBRARY

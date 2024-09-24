@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config build-utils/webpack.config.js --env env=prod",
     "build": "webpack --config build-utils/webpack.config.js --env env=prod",
+    "build:analyze": "npm run build -- --env addon=bundleanalyze",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
@@ -21,6 +22,7 @@
     "html-webpack-plugin": "^5.6.0",
     "react-hot-loader": "^4.13.1",
     "webpack": "^5.68.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
     "webpack-merge": "^6.0.1"
