@@ -306,7 +306,19 @@
       the incoming flags from your npm scripts in the package.json.
       
     Step6: Webpack Environment Variables: Definition
+       - Sometimes you may want to KNOW IN YOUR SOURCE CODE WHETHER YOU ARE IN DEVELOPMENT 
+       OR PRODUCTION MODE. For these cases you can specify dynamic environment variables 
+       via Webpack. Since you have a Webpack configuration file for each 
+       environment (dev, prod), you can define dedicated environment variables for them. 
+       In your build-utils/webpack.dev.js, define a environment variable the following way:
 
+       - The same applies to your build-utils/webpack.prod.js file, but with a different 
+       environment variable:
+
+       - Now you can use (e.g. console.log(process.env.NODE_ENV);) the environment 
+       variable in your src/index.js file or any other JavaScript in your src/ folder
+       to make decisions based on it.
+       
     Step7: Webpack Environment Variables: Definition
 
     Step8: Webpack Addons 

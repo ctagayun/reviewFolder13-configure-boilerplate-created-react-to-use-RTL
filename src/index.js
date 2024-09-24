@@ -5,6 +5,8 @@ import App from './App';
 
 const title = 'This is src/index.js';
 
+console.log(`Active execution environment is = ${process.env.NODE_ENV}`); //added to find out what environment we are in
+
 ReactDOM.render(
   <App title={title} />,
   document.getElementById('app')
