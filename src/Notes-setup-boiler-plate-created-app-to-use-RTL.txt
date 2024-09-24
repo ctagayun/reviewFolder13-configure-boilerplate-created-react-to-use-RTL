@@ -265,7 +265,46 @@
 
 
     Step5: Scroll to Webpack Merge Configuration
+      - modify package.json:
+          "start": "webpack serve --config build-utils/webpack.config.js --env env=dev",
+          "build": "webpack --config build-utils/webpack.config.js --env env=prod",
 
+        As you can see, we reference a new shared webpack.config.js for both npm scripts. 
+        The file is located in a new build-utils folder.
+
+      - Now, create the shared build-utils/webpack.config.js file again, but this time in 
+      the new dedicated build-utils folder, and give it the following configuration:
+
+      - create touch webpack.config.js and give it a new configuration. See notes
+        in the file. You can see that the function receives "env" environment flag 
+        from NPM scripts:
+          scripts": {
+           "start": "webpack serve --config build-utils/webpack.config.js --env env=dev",
+            ...
+          }
+
+            That way, we can dynamically require a environment specific Webpack configuration 
+         file with JavaScript template literals and merge it with a common Webpack 
+         configuration. In order to merge it, let's install a little helper library:
+
+            npm install --save-dev webpack-merge
+
+      - Next, we have to implement/create three files in the build-utils folder now:
+          1. webpack.common.js: shared Webpack configuration for development and build mode.
+              create the file in .build-utils folder (see notes)
+          2. webpack.dev.js: Webpack configuration only used by development mode.
+               create the file in .build-utils folder (see notes)
+          3. webpack.prod.js: Webpack configuration only used by production mode.
+               create the file in .build-utils folder (see notes)
+
+      - That's it. Your npm start and npm run build scripts should work now. Both are 
+      working with different configuration for Webpack mode and source maps in respect 
+      to their build-utils/webpack.dev.js and build-utils/webpack.prod.js configuration 
+      files. But they also share a common Webpack configuration from 
+      build-utils/webpack.common.js. Everything is dynamically merged in your 
+      build-utils/webpack.config.js file which does the dynamic merging based on 
+      the incoming flags from your npm scripts in the package.json.
+      
     Step6: Webpack Environment Variables: Definition
 
     Step7: Webpack Environment Variables: Definition
