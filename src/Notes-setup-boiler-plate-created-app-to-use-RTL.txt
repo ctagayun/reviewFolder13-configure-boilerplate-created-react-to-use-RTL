@@ -319,7 +319,35 @@
        variable in your src/index.js file or any other JavaScript in your src/ folder
        to make decisions based on it.
        
-    Step7: Webpack Environment Variables: Definition
+    Step7: Webpack Environment Variables: ENV
+           Previously you started to define your environment variables in your Webpack 
+       configuration files. However, that's not the best practice for sensitive 
+       information. For instance, let's say you want to use API keys/secrets (credentials) 
+       to access your database based on your development or production environment. 
+       You wouldn't want to expose these sensitive information in your Webpack 
+       configuration which may be shared with others. Instead, you would want to introduce 
+       dedicated files for your environment files which can be kept away from others and
+       version control systems like Git or SVN.
+       
+       - create .env.development in the project root 
+           copy: NODE_ENV=development
+       - create .env.production in the project root 
+           copy: NODE_ENV=production
+
+       - By using the dotenv-webpack plugin, you can copy these environment 
+         variables into your Webpack configuration files. First, install the plugin:
+             npm install dotenv-webpack --save-dev
+
+       - Second use it in your build-utils/webpack.dev.js file for the development mode:
+       - And third, use it in your build-utils/webpack.prod.js file for the production mode:
+
+       Now you can introduce sensitive information -- such as IP addresses, 
+       account credentials, and API keys/secrets -- in your environment variables via 
+       your .env.development and .env.production files. Your Webpack configuration
+       will copy them over to make them accessible in your source code (see previous section). 
+       Don't forget to add these new .env files to your .gitignore -- if you are using 
+       version control systems (e.g. Git) -- to hide your sensitive information from 
+       third parties.
 
     Step8: Webpack Addons 
 
