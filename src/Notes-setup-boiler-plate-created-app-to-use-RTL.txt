@@ -241,7 +241,28 @@
             JavaScript in dist/bundle.js.
 
     Step4: Scroll to Webpack Development/Build Configuration
-        
+           So far, we have used one common Webpack configuration for development and production. 
+        However, we can introduce a configuration for each mode as well. In your package.json, 
+        change the start and build scripts to the following:
+
+          "start": "webpack serve --config ./webpack.dev.js",
+          "build": "webpack --config ./webpack.prod.js",
+
+         Create these two files - and copy the old webpack.config.js over to both of them
+            and delete the old webpack.config.js
+            
+            First webpack.dev.js change:
+                mode: 'development',
+            Second, the webpack.prod.js change:
+                mode: 'production',
+            
+            - Our npm scripts to start and build your application should work again. 
+              But you may wonder: What's the difference now. 
+              
+            - next add "devtool: 'eval-source-map', 
+              to webpack.dev but not in webpack.prod.js but not in webpack.prod.js 
+              because it is faster to create source map in DEV
+
 
     Step5: Scroll to Webpack Merge Configuration
 
